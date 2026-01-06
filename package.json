@@ -1,0 +1,24 @@
+{
+  "name": "ankurlohachab.github.io",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Ankur Lohachab - Postdoctoral Researcher",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnkurLohachab/ankurlohachab.github.io.git"
+  },
+  "author": "Ankur Lohachab",
+  "license": "MIT",
+  "dependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^5.16.6",
+    "tailwindcss": "^3.4.19"
+  }
+}

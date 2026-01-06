@@ -1,0 +1,685 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const publications = [
+  {
+    year: 2025,
+    title: "Alloy4CMD: A Formal Approach for Component-based Modeling of Distributed Ledger Technology Architecture",
+    authors: "Ankur Lohachab, Saurabh Garg, Muhammad Bilal Amin",
+    venue: "Distributed Ledger Technologies: Research and Practice",
+    doi: "10.1145/3772069",
+    type: "journal"
+  },
+  {
+    year: 2024,
+    title: "A Blockchain-Based Approach for Model Card Accountability and Regulatory Compliance",
+    authors: "Ankur Lohachab, Visara Urovi",
+    venue: "CAiSE Workshops 2024",
+    doi: "10.1007/978-3-031-61003-5_4",
+    type: "conference"
+  },
+  {
+    year: 2024,
+    title: "Where Do Safety and Security Mutually Reinforce?",
+    authors: "Megha Quamara, Christina Kolb, Ankur Lohachab",
+    venue: "SAFECOMP Workshops 2024",
+    doi: "10.1007/978-3-031-68738-9_25",
+    type: "conference"
+  },
+  {
+    year: 2022,
+    title: "Towards Interconnected Blockchains: A Comprehensive Review of Interoperability",
+    authors: "Ankur Lohachab, Saurabh Garg, Byeong Kang, et al.",
+    venue: "ACM Computing Surveys, 54(7)",
+    doi: "10.1145/3460287",
+    type: "journal",
+    featured: true
+  },
+  {
+    year: 2021,
+    title: "Performance evaluation of Hyperledger Fabric for P2P energy trading",
+    authors: "Ankur Lohachab, Saurabh Garg, Byeong Ho Kang, Muhammad Bilal Amin",
+    venue: "Future Generation Computer Systems, 118",
+    doi: "10.1016/j.future.2021.01.023",
+    type: "journal"
+  },
+];
+
+const euProjects = [
+  {
+    name: "REALM",
+    fullName: "REALM Project",
+    desc: "Developing a blockchain-based framework for AI model transparency and accountability. Building infrastructure for trustworthy AI systems with verifiable model cards.",
+    role: "Postdoctoral Researcher",
+    focus: ["AI Transparency", "Blockchain", "Model Cards"],
+    link: "https://realm-ai.eu/"
+  },
+  {
+    name: "iCARE4CVD",
+    fullName: "iCARE4CVD - Cardiovascular Disease Research",
+    desc: "Designing smart consent mechanisms for secure, GDPR-compliant medical data sharing. Enabling privacy-preserving health data exchange across European institutions.",
+    role: "Postdoctoral Researcher",
+    focus: ["Smart Consent", "GDPR Compliance", "Healthcare Data"],
+    link: "https://icare4cvd.eu/"
+  },
+];
+
+const pypiPackages = [
+  {
+    name: "smart-model-card",
+    desc: "Python library for generating standardized AI/ML model cards with OMOP Common Data Model integration",
+    date: "Dec 2025",
+    link: "https://pypi.org/project/smart-model-card/"
+  },
+  {
+    name: "smart-omop",
+    desc: "OHDSI OMOP CDM data fetching and cohort management for healthcare AI applications",
+    date: "Dec 2025",
+    link: "https://pypi.org/project/smart-omop/"
+  },
+  {
+    name: "medsynth",
+    desc: "Medical Synthetic Data Generator with Privacy-Preserving Synthesis for healthcare research",
+    date: "Nov 2025",
+    link: "https://pypi.org/project/medsynth/"
+  },
+  {
+    name: "duneai-auto",
+    desc: "CLI utilities and viewer for automated NSCLC CT segmentation workflows",
+    date: "Nov 2025",
+    link: "https://pypi.org/project/duneai-auto/"
+  },
+  {
+    name: "luce-otp",
+    desc: "Zero-knowledge OTP proof using Rust and Groth16 zk-SNARKs for privacy-preserving authentication",
+    date: "Oct 2024",
+    link: "https://pypi.org/project/luce-otp/"
+  },
+];
+
+const researchAreas = [
+  {
+    title: "Blockchain & DLT",
+    desc: "Secure data-sharing infrastructures, interoperability, smart contracts",
+    code: "contract DataShare\n  mapping consent\n  function grantAccess\n    consent = true\n  end\nend"
+  },
+  {
+    title: "Applied Cryptography",
+    desc: "Zero-knowledge proofs, privacy-preserving protocols, zk-SNARKs",
+    code: "from ecc import Curve\ncurve = Curve.secp256k1\nproof = zk.generate\n  secret, input\nend"
+  },
+  {
+    title: "Healthcare Data",
+    desc: "GDPR-compliant consent, OMOP CDM, medical data sharing",
+    code: "SELECT patient, condition\nFROM condition_occurrence\nWHERE consent = granted\n  AND purpose = research"
+  },
+  {
+    title: "AI Transparency",
+    desc: "Model cards, accountability frameworks, trustworthy AI",
+    code: "model_card = ModelCard\n  name: CVD_Predictor\n  metrics: auc 0.92\n  fairness: audit\nend"
+  },
+  {
+    title: "Formal Methods",
+    desc: "Verification, multi-formalism analysis, Alloy modeling",
+    code: "sig Block\n  prev: lone Block\nsig Transaction\n  in: Block\nassert NoDoubleSpend\n  all t | one t.in"
+  },
+  {
+    title: "Distributed Computing",
+    desc: "Consensus mechanisms, P2P systems, fault tolerance",
+    code: "func Consensus\n  for peer in peers\n    go peer.Vote\n  end\n  waitForQuorum 2f+1\nend"
+  },
+];
+
+const teaching = [
+  {
+    role: "Co-coordinator",
+    institution: "Maastricht University",
+    course: "Introduction to Blockchains"
+  },
+  {
+    role: "Teaching Assistant",
+    institution: "Maastricht University",
+    course: "Data Science in Healthcare",
+    department: "Institute of Education, Faculty of Health, Medicine and Life Sciences"
+  },
+  {
+    role: "Visiting Lecturer",
+    institution: "Southwest University, China",
+    department: "Westa College",
+    courses: [
+      { name: "Computational Intelligence", code: "ENG233" },
+      { name: "Networking and Antennas", code: "ENG316" }
+    ]
+  },
+  {
+    role: "Casual Academic",
+    institution: "University of Tasmania",
+    department: "School of Engineering",
+    courses: [
+      { name: "Digital Electronics", code: "ENG233", link: "https://www.utas.edu.au/courses/cse/units/eng233-digital-electronics" },
+      { name: "Digital Electronics", code: "ENG746", link: "https://www.utas.edu.au/courses/cse/units/eng746-digital-electronics" }
+    ]
+  },
+  {
+    role: "Casual Academic",
+    institution: "University of Tasmania",
+    department: "School of ICT",
+    courses: [
+      { name: "Data Management Technology", code: "KIT712", link: "https://www.utas.edu.au/courses/cse/units/kit712-data-management-technology" },
+      { name: "Big Data Analytics", code: "KIT718", link: "https://www.utas.edu.au/courses/cse/units/kit718-big-data-analytics" },
+      { name: "Operating Systems", code: "KIT213", link: "https://www.utas.edu.au/courses/cse/units/kit213-operating-systems" },
+      { name: "Computational Science", code: "KIT103", link: "https://www.utas.edu.au/courses/cse/units/kit103-computational-science" },
+      { name: "Data Analytics", code: "KIT306", link: "https://www.utas.edu.au/courses/cse/units/kit306-data-analytics" },
+      { name: "eLogistics", code: "KIT710", link: "https://www.utas.edu.au/courses/cse/units/kit710-elogistics" }
+    ]
+  },
+];
+
+const reviews = [
+  "IEEE Trans. Information Forensics & Security",
+  "IEEE Trans. Vehicular Technology",
+  "IEEE Trans. Smart Grid",
+  "Future Generation Computer Systems",
+  "The Journal of Supercomputing",
+  "Scientific Reports",
+  "Journal of Network and Systems Management",
+];
+
+const interests = [
+  { title: "Road Trips", desc: "Long drives across countries" },
+  { title: "Random Adventures", desc: "Spontaneous explorations" },
+  { title: "Coding", desc: "Always learning, never mastering" },
+];
+---
+
+<Layout title="Ankur Lohachab | Researcher">
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <a href="#" class="font-mono text-xl font-semibold tracking-tight">AL<span class="text-primary-400">.</span></a>
+        <div class="hidden md:flex items-center gap-6">
+          <a href="#about" class="text-sm text-primary-600 hover:text-primary-900 transition-colors">About</a>
+          <a href="#projects" class="text-sm text-primary-600 hover:text-primary-900 transition-colors">Projects</a>
+          <a href="#software" class="text-sm text-primary-600 hover:text-primary-900 transition-colors">Software</a>
+          <a href="#publications" class="text-sm text-primary-600 hover:text-primary-900 transition-colors">Publications</a>
+          <a href="#teaching" class="text-sm text-primary-600 hover:text-primary-900 transition-colors">Teaching</a>
+          <a href="#contact" class="text-sm text-primary-600 hover:text-primary-900 transition-colors">Contact</a>
+        </div>
+              </div>
+    </div>
+  </nav>
+
+  <main class="relative">
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center pt-20 pb-12 px-6">
+      <div class="max-w-7xl mx-auto w-full">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div data-animate="1">
+            <p class="font-mono text-sm text-primary-500 mb-4 tracking-wider">POSTDOCTORAL RESEARCHER</p>
+            <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold text-primary-900 leading-tight mb-6">
+              Ankur<br/>Lohachab
+            </h1>
+            <p class="font-handwriting text-2xl text-primary-500 -mt-4 mb-4 -rotate-2">^ thats me!</p>
+            <p class="text-lg text-primary-700 mb-4">
+              <a href="https://cris.maastrichtuniversity.nl/en/persons/ankur-lohachab" target="_blank" class="hover:text-primary-900 underline decoration-primary-300 underline-offset-4">
+                Institute of Data Science
+              </a>,
+              <a href="https://www.maastrichtuniversity.nl/research/institute-data-science" target="_blank" class="hover:text-primary-900 underline decoration-primary-300 underline-offset-4">
+                Maastricht University
+              </a>
+            </p>
+            <p class="text-primary-600 max-w-lg leading-relaxed">
+              Building secure and transparent data-sharing infrastructures for healthcare.
+              Currently working on EU-funded projects
+              <a href="https://realm-ai.eu/" target="_blank" class="font-medium text-primary-900 hover:underline">REALM</a> and
+              <a href="https://icare4cvd.eu/" target="_blank" class="font-medium text-primary-900 hover:underline">iCARE4CVD</a>.
+            </p>
+            <div class="flex flex-wrap gap-4 mt-8">
+              <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-900 text-white rounded-lg hover:bg-primary-800 transition-all hover:shadow-lg">
+                View Projects
+                <i class="fas fa-arrow-right text-sm"></i>
+              </a>
+              <a href="https://scholar.google.com/citations?user=YE0ewKUAAAAJ" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 border border-primary-300 text-primary-700 rounded-lg hover:border-primary-400 hover:bg-primary-100 transition-all">
+                <i class="fas fa-graduation-cap"></i>
+                Google Scholar
+              </a>
+            </div>
+          </div>
+          <div class="relative" data-animate="2">
+            <div class="relative z-10">
+              <img
+                src="/images/profile.d8d647b0abfff54e998e.png"
+                alt="Ankur Lohachab"
+                class="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-2xl mx-auto shadow-2xl"
+              />
+            </div>
+            <div class="absolute -top-4 -right-4 w-24 h-24 bg-primary-200 rounded-full blur-2xl opacity-60"></div>
+            <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-primary-300 rounded-full blur-3xl opacity-40"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 relative">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="font-serif text-3xl md:text-4xl font-semibold text-primary-900 mb-12" data-animate>
+          About<span class="typewriter-cursor"></span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-min">
+          <!-- Bio Card -->
+          <div class="bento-card glass md:col-span-2 lg:row-span-2 p-8 rounded-3xl" data-animate="1">
+            <div class="h-full flex flex-col">
+              <p class="text-lg text-primary-700 leading-relaxed mb-4">
+                I am a Postdoctoral Researcher at the
+                <a href="https://www.maastrichtuniversity.nl/research/institute-data-science" target="_blank" class="font-medium text-primary-900 hover:underline">Institute of Data Science</a>,
+                Maastricht University, within the Faculty of Science and Engineering.
+              </p>
+              <p class="text-primary-600 leading-relaxed mb-4">
+                Currently, I am developing <strong class="text-primary-900">blockchain-based frameworks for AI transparency</strong> and
+                <strong class="text-primary-900">smart consent mechanisms for healthcare data sharing</strong> through
+                EU Horizon projects <a href="https://realm-ai.eu/" target="_blank" class="text-primary-900 hover:underline">REALM</a> and
+                <a href="https://icare4cvd.eu/" target="_blank" class="text-primary-900 hover:underline">iCARE4CVD</a>.
+              </p>
+              <p class="text-primary-600 leading-relaxed mb-4">
+                My research spans <strong class="text-primary-900">blockchain interoperability</strong>,
+                <strong class="text-primary-900">formal methods for DLT</strong>,
+                <strong class="text-primary-900">applied cryptography</strong>, and
+                <strong class="text-primary-900">distributed systems</strong>.
+              </p>
+              <p class="text-primary-600 leading-relaxed">
+                I completed my PhD at the
+                <a href="https://discover.utas.edu.au/Ankur.Lohachab/publications" target="_blank" class="text-primary-900 hover:underline">University of Tasmania</a>,
+                Australia, with dissertation
+                <a href="https://figshare.utas.edu.au/articles/thesis/The_logic_of_distributed_ledger_technology_a_formal_study/28147688" target="_blank" class="italic hover:underline">"The Logic of Distributed Ledger Technology: A Formal Study"</a>.
+              </p>
+              <div class="mt-auto pt-6 flex gap-3">
+                <a href="https://orcid.org/0000-0002-5291-7860" target="_blank" class="text-sm text-primary-500 hover:text-primary-900">
+                  <i class="fab fa-orcid mr-1"></i>ORCID
+                </a>
+                <a href="https://dblp.org/pid/228/8675.html" target="_blank" class="text-sm text-primary-500 hover:text-primary-900">
+                  <i class="fas fa-book mr-1"></i>DBLP
+                </a>
+                <a href="https://github.com/ankurlohachab" target="_blank" class="text-sm text-primary-500 hover:text-primary-900">
+                  <i class="fab fa-github mr-1"></i>GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education Card -->
+          <div class="bento-card glass p-6 rounded-3xl lg:col-span-2" data-animate="2">
+            <p class="text-sm font-bold text-primary-900 uppercase tracking-wide mb-4">Education</p>
+            <div class="space-y-3">
+              <div>
+                <p class="font-medium text-primary-900">Ph.D. Information Technology</p>
+                <a href="https://discover.utas.edu.au/Ankur.Lohachab/publications" target="_blank" class="text-sm text-primary-500 hover:text-primary-700">University of Tasmania, Australia</a>
+                <p class="text-xs text-primary-400">2019 - 2024</p>
+              </div>
+              <div>
+                <p class="font-medium text-primary-900">Graduate Certificate in Research</p>
+                <p class="text-sm text-primary-500">University of Tasmania, Australia</p>
+              </div>
+              <div>
+                <p class="font-medium text-primary-900">M.Tech Computer Science & Engineering</p>
+                <p class="text-sm text-primary-500">Kurukshetra University, India</p>
+                <p class="text-xs text-primary-400">University Medal • First Rank</p>
+              </div>
+              <div>
+                <p class="font-medium text-primary-900">B.Tech Computer Science & Engineering</p>
+                <p class="text-sm text-primary-500">Kurukshetra University, India</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Awards Card -->
+          <div class="bento-card bg-primary-900 text-white p-6 rounded-3xl" data-animate="3">
+            <p class="text-sm font-bold text-primary-300 uppercase tracking-wide mb-3">Awards & Grants</p>
+            <ul class="text-sm space-y-2">
+              <li class="flex items-start gap-2">
+                <span class="text-primary-400 shrink-0">2019</span>
+                <span>Tasmania Graduate Research Scholarship (3.5 yrs)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-400 shrink-0">2018</span>
+                <span>University Medal, M.Tech First Rank</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Service Card -->
+          <div class="bento-card glass p-6 rounded-3xl" data-animate="4">
+            <p class="text-sm font-bold text-primary-900 uppercase tracking-wide mb-3">Academic Service</p>
+            <p class="text-sm text-primary-600 mb-2">
+              <strong class="text-primary-900">Grant Evaluator:</strong> Czech Science Foundation, Chilean Ministry of Science
+            </p>
+            <p class="text-xs text-primary-500">
+              <strong>Reviewer:</strong> {reviews.slice(0, 4).join(", ")} + more
+            </p>
+          </div>
+        </div>
+
+        <!-- Research Areas -->
+        <h3 class="font-mono text-lg font-medium text-primary-900 mt-16 mb-6" data-animate>Research Areas</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {researchAreas.map((area, i) => (
+            <div class="bento-card glass p-4 rounded-2xl group overflow-hidden" data-animate={String(i + 1)}>
+              <pre class="code-typewriter font-mono text-xs leading-tight text-green-400 bg-primary-900 p-3 rounded-lg mb-3 overflow-hidden h-24"><code>{area.code}</code></pre>
+              <h4 class="font-semibold text-primary-900 mb-1">{area.title}</h4>
+              <p class="text-xs text-primary-600">{area.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Typewriter scribble -->
+    <div class="hidden lg:flex items-center justify-center py-8 opacity-40">
+      <div class="font-mono text-xs text-primary-400 tracking-widest">
+        · · · · · · · · · · while alive: learn, build, share · · · · · · · · · ·
+      </div>
+    </div>
+
+    <!-- EU Projects Section -->
+    <section id="projects" class="py-20 px-6 bg-white relative">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-end gap-4 mb-4">
+          <h2 class="font-serif text-3xl md:text-4xl font-semibold text-primary-900" data-animate>
+            EU-Funded Projects<span class="typewriter-cursor"></span>
+          </h2>
+          <span class="font-handwriting text-xl text-primary-400 rotate-2 hidden md:inline">exciting work!</span>
+        </div>
+        <p class="text-primary-600 max-w-2xl mb-12" data-animate>
+          Currently contributing to European research initiatives focused on healthcare data infrastructure and AI transparency.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {euProjects.map((project, i) => (
+            <a href={project.link} target="_blank" class="bento-card glass p-8 rounded-3xl group block border-l-4 border-primary-900" data-animate={String(i + 1)}>
+              <div class="flex items-start justify-between mb-4">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                  <i class="fas fa-eu"></i>
+                  EU Horizon
+                </div>
+                <i class="fas fa-arrow-up-right-from-square text-primary-400 group-hover:text-primary-900 transition-colors"></i>
+              </div>
+              <h3 class="font-serif text-2xl font-semibold text-primary-900 mb-2 group-hover:text-primary-700">{project.name}</h3>
+              <p class="text-sm text-primary-500 mb-4">{project.role}</p>
+              <p class="text-primary-600 mb-4">{project.desc}</p>
+              <div class="flex flex-wrap gap-2">
+                {project.focus.map((f) => (
+                  <span class="px-2 py-1 bg-primary-100 text-primary-600 rounded text-xs">{f}</span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Handwritten margin note -->
+    <div class="hidden lg:block text-center py-6">
+      <span class="font-handwriting text-2xl text-primary-300 inline-block -rotate-1">
+        " first, solve the problem. then, write the code. "
+      </span>
+    </div>
+
+    <!-- Software Section -->
+    <section id="software" class="py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-12">
+          <div>
+            <h2 class="font-serif text-3xl md:text-4xl font-semibold text-primary-900" data-animate>
+              Open Source Software<span class="typewriter-cursor"></span>
+            </h2>
+            <p class="text-primary-600 mt-2" data-animate>Python packages for healthcare AI and privacy-preserving systems</p>
+          </div>
+          <a href="https://pypi.org/user/ankurlohachab/" target="_blank" class="inline-flex items-center gap-2 text-sm text-primary-600 hover:text-primary-900 transition-colors" data-animate>
+            <i class="fab fa-python"></i>
+            View all on PyPI
+            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {pypiPackages.map((pkg, i) => (
+            <a href={pkg.link} target="_blank" class="bento-card glass p-6 rounded-2xl group block" data-animate={String(i + 1)}>
+              <div class="flex items-start justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <i class="fab fa-python text-primary-600"></i>
+                  <code class="font-mono text-sm font-semibold text-primary-900">{pkg.name}</code>
+                </div>
+                <span class="text-xs text-primary-400">{pkg.date}</span>
+              </div>
+              <p class="text-sm text-primary-600 group-hover:text-primary-700">{pkg.desc}</p>
+            </a>
+          ))}
+        </div>
+
+        <div class="mt-8 text-center" data-animate>
+          <a href="https://github.com/ankurlohachab" target="_blank" class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-900 transition-colors">
+            <i class="fab fa-github"></i>
+            More projects on GitHub
+            <i class="fas fa-arrow-right text-sm"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typewriter divider -->
+    <div class="hidden lg:flex items-center justify-center py-6 opacity-30">
+      <div class="font-mono text-xs text-primary-500 tracking-widest">
+        ▸ ▸ ▸ PUBLISH OR PERISH ▸ ▸ ▸ BUT MOSTLY PUBLISH ▸ ▸ ▸
+      </div>
+    </div>
+
+    <!-- Publications Section -->
+    <section id="publications" class="py-20 px-6 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-12">
+          <div class="flex items-end gap-3">
+            <h2 class="font-serif text-3xl md:text-4xl font-semibold text-primary-900" data-animate>
+              Selected Publications<span class="typewriter-cursor"></span>
+            </h2>
+            <span class="font-handwriting text-xl text-primary-400 -rotate-2 hidden md:inline">peer-reviewed!</span>
+          </div>
+          <a href="https://scholar.google.com/citations?user=YE0ewKUAAAAJ" target="_blank" class="inline-flex items-center gap-2 text-sm text-primary-600 hover:text-primary-900 transition-colors" data-animate>
+            <i class="fas fa-graduation-cap"></i>
+            Full list on Google Scholar
+            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+          </a>
+        </div>
+
+        <div class="space-y-4">
+          {publications.map((pub, i) => (
+            <article class={`bento-card glass p-6 rounded-2xl ${pub.featured ? 'border-l-4 border-primary-900' : ''}`} data-animate={String(i + 1)}>
+              <div class="flex flex-wrap items-center gap-2 mb-3">
+                <span class="font-mono text-sm font-semibold text-primary-900">{pub.year}</span>
+                <span class={`px-2 py-0.5 text-xs font-medium rounded ${pub.type === 'journal' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'}`}>
+                  {pub.type === 'journal' ? 'Journal' : 'Conference'}
+                </span>
+                {pub.featured && (
+                  <span class="px-2 py-0.5 text-xs font-medium bg-amber-100 text-amber-700 rounded">Highly Cited</span>
+                )}
+              </div>
+              <h3 class="font-serif text-lg font-medium text-primary-900 mb-2 leading-snug">{pub.title}</h3>
+              <p class="text-sm text-primary-700 mb-1">{pub.authors}</p>
+              <p class="text-sm text-primary-500 italic mb-3">{pub.venue}</p>
+              <a href={`https://doi.org/${pub.doi}`} target="_blank" class="inline-flex items-center gap-1 text-sm text-primary-600 hover:text-primary-900 transition-colors">
+                <i class="fas fa-external-link-alt text-xs"></i>
+                DOI: {pub.doi}
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Teaching Section -->
+    <section id="teaching" class="py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-end gap-4 mb-8">
+          <h2 class="font-serif text-3xl md:text-4xl font-semibold text-primary-900" data-animate>
+            Teaching<span class="typewriter-cursor"></span>
+          </h2>
+          <span class="font-handwriting text-xl text-primary-400 -rotate-2 hidden md:inline">I love this part!</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {teaching.map((t, i) => (
+            <div class={`bento-card glass p-5 rounded-2xl ${t.highlight ? 'bg-primary-900 text-white' : ''}`} data-animate={String(i + 1)}>
+              <div class="flex-1 min-w-0">
+                  <span class={`font-semibold ${t.highlight ? 'text-white' : 'text-primary-900'}`}>{t.role}</span>
+                  <p class={`text-xs ${t.highlight ? 'text-primary-400' : 'text-primary-400'}`}>{t.institution}</p>
+                  {t.department && (
+                    <p class={`text-xs ${t.highlight ? 'text-primary-300' : 'text-primary-500'}`}>{t.department}</p>
+                  )}
+                  {t.course && (
+                    t.link ? (
+                      <a href={t.link} target="_blank" class={`text-sm hover:underline block mt-2 ${t.highlight ? 'text-primary-200' : 'text-primary-600'}`}>
+                        {t.course} <i class="fas fa-arrow-up-right-from-square text-xs ml-1"></i>
+                      </a>
+                    ) : (
+                      <p class={`text-sm mt-2 ${t.highlight ? 'text-primary-200' : 'text-primary-600'}`}>{t.course}</p>
+                    )
+                  )}
+                  {t.courses && (
+                    <ul class={`mt-2 space-y-1 text-sm ${t.highlight ? 'text-primary-200' : 'text-primary-600'}`}>
+                      {t.courses.map((c) => (
+                        <li class="flex items-center gap-1">
+                          <span class="text-primary-400">-</span>
+                          {c.link ? (
+                            <a href={c.link} target="_blank" class="hover:underline">
+                              {c.name} ({c.code}) <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                            </a>
+                          ) : (
+                            <span>{c.name} ({c.code})</span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Handwritten thought -->
+    <div class="hidden lg:block text-center py-8">
+      <div class="font-handwriting text-xl text-primary-400 space-y-1">
+        <span class="block rotate-1">todo:</span>
+        <span class="block -rotate-1 line-through opacity-50">finish PhD</span>
+        <span class="block rotate-2">keep learning</span>
+        <span class="block -rotate-1 text-sm">(always...)</span>
+      </div>
+    </div>
+
+    <!-- Beyond Section -->
+    <section id="beyond" class="py-20 px-6 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="font-serif text-3xl md:text-4xl font-semibold text-primary-900 mb-4" data-animate>
+          Beyond Research<span class="typewriter-cursor"></span>
+        </h2>
+        <blockquote class="max-w-3xl mb-12" data-animate>
+          <p class="font-handwriting text-2xl md:text-3xl text-primary-700 leading-relaxed">"Time, the sovereign of all, places us amidst the many! Yet, within the vastness of research, a solitary pursuit by a single mind, though rigorous, barely unveils the grandeur of knowledge&apos;s boundless frontiers ∞"</p>
+          <cite class="block font-handwriting text-xl text-primary-500 mt-3">— From my <a href="https://figshare.utas.edu.au/articles/thesis/The_logic_of_distributed_ledger_technology_a_formal_study/28147688" target="_blank" class="text-primary-600 hover:underline underline-offset-4">PhD thesis</a></cite>
+        </blockquote>
+
+        <div class="grid grid-cols-3 lg:grid-cols-3 gap-4">
+          {interests.map((item, i) => (
+            <div class="bento-card glass p-6 rounded-2xl text-center group" data-animate={String(i + 1)}>
+              <h3 class="font-bold text-primary-900 mb-1 text-lg">{item.title}</h3>
+              <p class="text-sm text-primary-600">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="bento-card glass-dark text-white p-8 md:p-12 rounded-3xl" data-animate>
+          <div class="grid md:grid-cols-2 gap-12">
+            <div>
+              <div class="flex items-end gap-3">
+                <h2 class="font-serif text-3xl md:text-4xl font-semibold mb-4">
+                  Let's Connect<span class="typewriter-cursor"></span>
+                </h2>
+                <span class="font-handwriting text-xl text-primary-300 rotate-3 mb-4">say hi!</span>
+              </div>
+              <p class="text-primary-300 mb-8 leading-relaxed">
+                Interested in healthcare data infrastructure, blockchain research, or collaboration opportunities? Feel free to reach out.
+              </p>
+              <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary-800 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-envelope text-primary-300"></i>
+                  </div>
+                  <div>
+                    <p class="text-xs text-primary-400 uppercase tracking-wider">Email</p>
+                    <a href="mailto:ankur.lohachab@maastrichtuniversity.nl" class="text-white hover:text-primary-200 transition-colors">
+                      ankur.lohachab@maastrichtuniversity.nl
+                    </a>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-primary-800 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-location-dot text-primary-300"></i>
+                  </div>
+                  <div>
+                    <p class="text-xs text-primary-400 uppercase tracking-wider">Location</p>
+                    <a href="https://maps.google.com/?q=Paul-Henri+Spaaklaan+1,+6229+EN+Maastricht,+The+Netherlands" target="_blank" class="text-white hover:text-primary-200 transition-colors">
+                      Paul-Henri Spaaklaan 1, Room C3.009, 6229 EN Maastricht, The Netherlands
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col justify-center">
+              <p class="text-sm text-primary-400 mb-4">Find me online</p>
+              <div class="flex flex-wrap gap-3">
+                <a href="https://scholar.google.com/citations?user=YE0ewKUAAAAJ" target="_blank" class="w-12 h-12 bg-primary-800 hover:bg-primary-700 rounded-xl flex items-center justify-center transition-colors" title="Google Scholar">
+                  <i class="fas fa-graduation-cap text-lg text-primary-300"></i>
+                </a>
+                <a href="https://orcid.org/0000-0002-5291-7860" target="_blank" class="w-12 h-12 bg-primary-800 hover:bg-primary-700 rounded-xl flex items-center justify-center transition-colors" title="ORCID">
+                  <i class="fab fa-orcid text-lg text-primary-300"></i>
+                </a>
+                <a href="https://dblp.org/pid/228/8675.html" target="_blank" class="w-12 h-12 bg-primary-800 hover:bg-primary-700 rounded-xl flex items-center justify-center transition-colors" title="DBLP">
+                  <i class="fas fa-book text-lg text-primary-300"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ankur-lohachab-b4947936/" target="_blank" class="w-12 h-12 bg-primary-800 hover:bg-primary-700 rounded-xl flex items-center justify-center transition-colors" title="LinkedIn">
+                  <i class="fab fa-linkedin text-lg text-primary-300"></i>
+                </a>
+                <a href="https://github.com/ankurlohachab" target="_blank" class="w-12 h-12 bg-primary-800 hover:bg-primary-700 rounded-xl flex items-center justify-center transition-colors" title="GitHub">
+                  <i class="fab fa-github text-lg text-primary-300"></i>
+                </a>
+                <a href="https://pypi.org/user/ankurlohachab/" target="_blank" class="w-12 h-12 bg-primary-800 hover:bg-primary-700 rounded-xl flex items-center justify-center transition-colors" title="PyPI">
+                  <i class="fab fa-python text-lg text-primary-300"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-primary-200">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-primary-500">
+          <span class="font-mono">_</span> Ankur Lohachab &copy; {new Date().getFullYear()}
+        </p>
+        <div class="flex gap-4 text-sm text-primary-400">
+          <a href="https://cris.maastrichtuniversity.nl/en/persons/ankur-lohachab" target="_blank" class="hover:text-primary-600">Maastricht</a>
+          <a href="https://discover.utas.edu.au/Ankur.Lohachab/publications" target="_blank" class="hover:text-primary-600">UTAS</a>
+          <a href="https://figshare.utas.edu.au/articles/thesis/The_logic_of_distributed_ledger_technology_a_formal_study/28147688" target="_blank" class="hover:text-primary-600">Thesis</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+</Layout>
